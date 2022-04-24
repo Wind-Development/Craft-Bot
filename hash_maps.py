@@ -1,8 +1,6 @@
 # This is a class used to link data for mod-mail
-
 class HashTable:
 
-  # This code is not by me.
   # Original: https://www.geeksforgeeks.org/hash-map-in-python/
 
   def __init__(self, size):
@@ -17,7 +15,7 @@ class HashTable:
     hashed_key = hash(key) % self.size
       
     bucket = self.hash_table[hashed_key]
-
+    
     found_key = False
     for index, record in enumerate(bucket):
       record_key, record_val = record
@@ -38,8 +36,8 @@ class HashTable:
     bucket = self.hash_table[hashed_key]
 
     found_key = False
-    for index, record in enumerate(bucket):
-      record_key, record_val = record
+    for record in enumerate(bucket):
+      record_key = record
 
       if record_key == key:
           found_key = True
