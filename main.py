@@ -66,7 +66,7 @@ async def handle_server_status(message):
   try:
     server.status()
     await message.channel.send(':green_circle: Server is online')
-  except:
+  except Exception:
     await message.channel.send(':red_circle: Server is offline')
 
 # Handle player list
