@@ -1,7 +1,5 @@
 # The handler for mod mail
-
 import discord
-import os
 from hash_maps import *
 
 class ModMail:
@@ -19,7 +17,7 @@ class ModMail:
     if self.hash_tables.get_val(message.author.name) != 'No record found':
       staffChannel = self.hash_tables.get_val(message.author.name)
       embed=discord.Embed(title='Message from ' + message.author.name + ':', description=message.content, color=self.color)
-      embed.set_footer(text=message.author.name, icon_url=message.author.avatar_url)    
+      embed.set_footer(text=message.author.name, icon_url=message.author.avatar_url)
       DMChannel = message.channel
       userEmbed=discord.Embed(title='Your Message:', description=message.content, color=self.color)
       userEmbed.set_footer(text=message.author.name, icon_url=message.author.avatar_url)
@@ -39,7 +37,7 @@ class ModMail:
     channel = self.hash_tables.get_val(message.author.name)
     
     staffEmbed=discord.Embed(title='Message from ' + message.author.name + ':', description=message.content, color=self.color)
-    staffEmbed.set_footer(text=message.author.name, icon_url=message.author.avatar_url)    
+    staffEmbed.set_footer(text=message.author.name, icon_url=message.author.avatar_url)
     
     userEmbed=discord.Embed(title='Your Message:', description=message.content, color=self.color)
     userEmbed.set_footer(text=message.author.name, icon_url=message.author.avatar_url)
