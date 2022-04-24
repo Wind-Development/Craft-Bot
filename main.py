@@ -75,7 +75,7 @@ async def handle_players(message):
     status=server.status()
     players=status.players.online
     await message.channel.send('There are ' + players + ' players online.')
-  except:
+  except Exception:
     await message.channel.send('There are 0 players online.')
 
 # Handle support info

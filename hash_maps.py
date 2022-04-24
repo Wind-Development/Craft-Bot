@@ -4,7 +4,7 @@ class HashTable:
   # Original: https://www.geeksforgeeks.org/hash-map-in-python/
 
   def __init__(self, size):
-    """Constructs a hash table, this is much like a java hash map"""
+    """Constructs a hash table, this is much like a java hash map."""
     self.size = size
     self.hash_table = self.create_buckets()
 

@@ -10,7 +10,7 @@ class ModMail:
   modmail_log_channel = None
 
   def __init__(self, color, client, modmail_log_channel):
-    """Initializes the mod mail handler instance"""
+    """Initializes the mod mail handler instance."""
     self.color = color
     self.client = client
     self.modmail_log_channel = modmail_log_channel
