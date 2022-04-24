@@ -2,11 +2,11 @@ import discord
 import time
 from mod_mail_handler import ModMail
 from mcstatus import JavaServer
-from configuration import *
+import configuration as config
 
-server = JavaServer.lookup(server_ip) # The java server
+server = JavaServer.lookup(config.server_ip) # The java server
 client = discord.Client() # The bot client
-modmail = ModMail(color, client) # The mod mail manager
+modmail = ModMail(config.color, client) # The mod mail manager
 
 @client.event
 async def on_ready():
@@ -20,8 +20,8 @@ async def set_status():
   
 # Handle the bot help msg
 async def handle_help(message):
-  embed=discord.Embed(title=bot_name + ' - Help Page', url='http://' + website, description='These are all the commands of the' + bot_name + 'bot.', 
-  color=color)
+  embed=discord.Embed(title=config.bot_name + ' - Help Page', url='http://' + config.website, description='These are all the commands of the' + config.bot_name + 'bot.', 
+  color=config.color)
   embed.add_field(name='!ip', value='Displays the server ip.', inline=False)
   embed.add_field(name='!links', value='Displays various links.', inline=False)
   embed.add_field(name='!invite', value='Sends an invite link to the discord', inline=False)
@@ -36,8 +36,8 @@ async def handle_suggestion(message):
   suggestionData = '{}'.format(message.content).replace('!suggest', ' ')
   embed=discord.Embed(title = 'New Suggestion!:')
   embed.add_field(name='Vote Below!', value=suggestionData, inline=True)
-  channel=client.get_channel(suggestion_channel)
-  embed.color=color
+  channel=client.get_channel(config.suggestion_channel)
+  embed.color=config.color
   embed.set_footer(text='Suggested by ' + message.author.name, icon_url=message.author.avatar_url)
   up_emoji = '\N{THUMBS UP SIGN}'
   down_emoji = '\N{THUMBS DOWN SIGN}'
@@ -51,15 +51,15 @@ async def handle_suggestion(message):
 # Handle links
 async def handle_links(message):
   embed=discord.Embed(title = 'Links:')
-  embed.add_field(name='Website/Forums:', value='http://' + website, inline=False)
-  embed.add_field(name='Ban Appeal:', value='http://' + ban_appeal, inline=False)
-  embed.add_field(name='Staff Application:', value='http://' + staff_application, inline=False)
-  embed.color=color
+  embed.add_field(name='Website/Forums:', value='http://' + config.website, inline=False)
+  embed.add_field(name='Ban Appeal:', value='http://' + config.ban_appeal, inline=False)
+  embed.add_field(name='Staff Application:', value='http://' + config.staff_application, inline=False)
+  embed.color=config.color
   await message.channel.send(embed=embed)
   
 # Handle IP
 async def handle_ip(message):
-  embed=discord.Embed(title = 'IP:', description = '**' + server_ip + '**', color=color)
+  embed=discord.Embed(title = 'IP:', description = '**' + config.server_ip + '**', color=config.color)
   await message.channel.send(embed=embed)
 
 # Handle server status
@@ -81,7 +81,7 @@ async def handle_players(message):
         
 # Handle support info
 async def handle_support(message):
-  embed=discord.Embed(title = 'Support:', description = '**To get support, report a user/player, or report a bug please dm me.**', color=color)
+  embed=discord.Embed(title = 'Support:', description = '**To get support, report a user/player, or report a bug please dm me.**', color=config.color)
   await message.channel.send(embed=embed)
 
 # Listen to messages for mod-mail/cmds
