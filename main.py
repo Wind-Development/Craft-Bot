@@ -20,8 +20,7 @@ async def set_status():
 
 # Handle the bot help msg
 async def handle_help(message):
-  embed=discord.Embed(title=config.bot_name + ' - Help Page', url='http://' + config.website, description='These are all the commands of the' + config.bot_name + 'bot.', 
-  color=config.color)
+  embed=discord.Embed(title=config.bot_name + ' - Help Page', url='http://' + config.website, description='These are all the commands of the' + config.bot_name + 'bot.', color=config.color)
   embed.add_field(name='!ip', value='Displays the server ip.', inline=False)
   embed.add_field(name='!links', value='Displays various links.', inline=False)
   embed.add_field(name='!invite', value='Sends an invite link to the discord', inline=False)

@@ -9,11 +9,12 @@ class ModMail:
   debug = False # Debug mode
   modmail_log_channel = None
 
+  # Initializes the mod mail handler instance
   def __init__(self, color, client, modmail_log_channel):
     self.color = color
     self.client = client
     self.modmail_log_channel = modmail_log_channel
-    
+
   # Handle a private msg
   async def handle_private_msg(self, message):
     if self.hash_tables.get_val(message.author.name) != 'No record found':
@@ -28,7 +29,7 @@ class ModMail:
       return
     
     if self.debug:
-      channel=self.client.get_channel(modmail_log_channel)
+      channel=self.client.get_channel(self.modmail_log_channel)
       await channel.send('A new message was received from **' + message.author.name + '**.')
       
     modMailChannel = await channel.guild.create_text_channel(name=message.author.name +'-mod-mail', category=channel.category)
