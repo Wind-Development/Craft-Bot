@@ -9,8 +9,10 @@ class ModMail:
   debug = False # Debug mode
   modmail_log_channel = None
 
-  # Initializes the mod mail handler instance
   def __init__(self, color, client, modmail_log_channel):
+    """
+    Initializes the mod mail handler instance
+    """
     self.color = color
     self.client = client
     self.modmail_log_channel = modmail_log_channel
