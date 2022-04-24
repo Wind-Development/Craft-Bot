@@ -1,4 +1,7 @@
 # Craft Bot
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/788741cbbc954bb7ba2587918e83951b)](https://app.codacy.com/gh/Wind-Development/Craft-Bot?utm_source=github.com&utm_medium=referral&utm_content=Wind-Development/Craft-Bot&utm_campaign=Badge_Grade_Settings)
+
 A multi-purpose discord bot made for MC server owners built with the discord.py library
 
 # Setup
