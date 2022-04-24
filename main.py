@@ -17,7 +17,7 @@ async def on_ready():
 async def set_status():
   time.sleep(3)
   await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='!help and DMs'))
-  
+
 # Handle the bot help msg
 async def handle_help(message):
   embed=discord.Embed(title=config.bot_name + ' - Help Page', url='http://' + config.website, description='These are all the commands of the' + config.bot_name + 'bot.', 

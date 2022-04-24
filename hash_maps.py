@@ -18,7 +18,7 @@ class HashTable:
     
     found_key = False
     for index, record in enumerate(bucket):
-      record_key, record_val = record
+      record_key = record
 
       if record_key == key:
         found_key = True
@@ -44,7 +44,7 @@ class HashTable:
           break
 
     if found_key:
-      return record_val
+      return record_key
     else:
       return 'No record found'
 
@@ -56,7 +56,7 @@ class HashTable:
 
     found_key = False
     for index, record in enumerate(bucket):
-      record_key, record_val = record
+      record_key = record
 
       if record_key == key:
         found_key = True

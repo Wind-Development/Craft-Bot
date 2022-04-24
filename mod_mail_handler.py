@@ -8,7 +8,7 @@ class ModMail:
   color = None
   debug = False # Debug mode
   modmail_log_channel = None
-  
+
   def __init__(self, color, client, modmail_log_channel):
     self.color = color
     self.client = client
