@@ -1,5 +1,4 @@
 import discord
-import os
 import time
 from mod_mail_handler import ModMail
 from mcstatus import JavaServer
@@ -11,7 +10,7 @@ modmail = ModMail(color, client) # The mod mail manager
 
 @client.event
 async def on_ready():
-  print('The bot has logged in as {0.user}'.format(client)) 
+  print('The bot has logged in as {0.user}'.format(client))
   await set_status()
 
 # Setting the bot status
@@ -30,9 +29,9 @@ async def handle_help(message):
   embed.add_field(name='!support', value='Tells you how to get support/report a bug/report a user', inline=False)
   embed.add_field(name='!status', value='Displays the online status of the server', inline=False)
   embed.add_field(name='!players', value='Displays the player count of the server', inline=False)
-  await message.channel.send(embed=embed)    
-
-# Handle suggestions 
+  await message.channel.send(embed=embed)
+  
+# Handle suggestions
 async def handle_suggestion(message):
   suggestionData = '{}'.format(message.content).replace('!suggest', ' ')
   embed=discord.Embed(title = 'New Suggestion!:')
@@ -47,11 +46,11 @@ async def handle_suggestion(message):
   await msg.add_reaction(up_emoji)
   await msg.add_reaction(down_emoji)
   
-  await message.channel.send('Your suggestion has been submittted ' + '**' + message.author.name + '**')   
+  await message.channel.send('Your suggestion has been submittted ' + '**' + message.author.name + '**')
 
 # Handle links
 async def handle_links(message):
-  embed=discord.Embed(title = 'Links:') 
+  embed=discord.Embed(title = 'Links:')
   embed.add_field(name='Website/Forums:', value='http://' + website, inline=False)
   embed.add_field(name='Ban Appeal:', value='http://' + ban_appeal, inline=False)
   embed.add_field(name='Staff Application:', value='http://' + staff_application, inline=False)
@@ -66,7 +65,7 @@ async def handle_ip(message):
 # Handle server status
 async def handle_server_status(message):
   try:
-    status=server.status()
+    server.status()
     await message.channel.send(':green_circle: Server is online')
   except:
     await message.channel.send(':red_circle: Server is offline')
