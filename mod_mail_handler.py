@@ -69,7 +69,7 @@ class ModMail:
       self.hash_tables.delete_val(self.hash_tables.get_val(message.channel.name))
       self.hash_tables.delete_val(message.channel)
 
-      if debug:
+      if self.debug:
         print('[LOGS] A mod mail channel was deleted')
         
       await message.channel.delete()
