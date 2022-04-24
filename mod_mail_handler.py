@@ -5,7 +5,7 @@ import os
 from hash_maps import *
 
 class ModMail:
-  hash_tables = HashTable(1000)  # Hash table for mod-mail
+  hash_tables = HashTable(2000)  # Hash table for mod-mail
   client = None
   color = None
   debug = False # Debug mode
