@@ -27,29 +27,29 @@ class ModMail:
       await staffChannel.send(embed=embed)
       await DMChannel.send(embed=userEmbed)
       return
-    
+
     if self.debug:
       channel=self.client.get_channel(self.modmail_log_channel)
       await channel.send('A new message was received from **' + message.author.name + '**.')
-      
+
     modMailChannel = await channel.guild.create_text_channel(name=message.author.name +'-mod-mail', category=channel.category)
-    
+
     self.hash_tables.set_val(message.author.name, modMailChannel)
     self.hash_tables.set_val(modMailChannel, message.author)
-    
+
     channel = self.hash_tables.get_val(message.author.name)
-    
+
     staffEmbed=discord.Embed(title='Message from ' + message.author.name + ':', description=message.content, color=self.color)
     staffEmbed.set_footer(text=message.author.name, icon_url=message.author.avatar_url)
-    
+
     userEmbed=discord.Embed(title='Your Message:', description=message.content, color=self.color)
     userEmbed.set_footer(text=message.author.name, icon_url=message.author.avatar_url)
-    
+
     await channel.send(embed=staffEmbed)
     await message.author.send(embed=userEmbed)
     await message.channel.send('**Your message has been sent to mod-mail!**')
-    
-    
+
+
   # Handle a staff mod mail message
   async def handle_mod_mail_channel_msg(self, message):
     userEmbed=discord.Embed(title='Message from ' + message.author.name, description=message.content, color=self.color)
@@ -61,7 +61,7 @@ class ModMail:
     await member.send(embed=userEmbed)
     await message.delete()
     await message.channel.send(embed=staffEmbed)
-    
+
 
   # Handle a mod mail channel close
   async def handle_close_mod_mail(self, message):
@@ -71,6 +71,6 @@ class ModMail:
 
       if self.debug:
         print('[LOGS] A mod mail channel was deleted')
-        
+
       await message.channel.delete()
-    
+

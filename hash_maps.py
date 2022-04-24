@@ -16,7 +16,7 @@ class HashTable:
     hashed_key = hash(key) % self.size
 
     bucket = self.hash_table[hashed_key]
-    
+
     found_key = False
     for index, record in enumerate(bucket):
       record_key = record
@@ -31,9 +31,9 @@ class HashTable:
       bucket.append((key, val))
 
   def get_val(self, key):
-    
+
     hashed_key = hash(key) % self.size
-      
+
     bucket = self.hash_table[hashed_key]
 
     found_key = False
@@ -50,7 +50,7 @@ class HashTable:
       return 'No record found'
 
   def delete_val(self, key):
-    
+
     hashed_key = hash(key) % self.size
 
     bucket = self.hash_table[hashed_key]

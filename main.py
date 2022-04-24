@@ -29,7 +29,7 @@ async def handle_help(message):
   embed.add_field(name='!status', value='Displays the online status of the server', inline=False)
   embed.add_field(name='!players', value='Displays the player count of the server', inline=False)
   await message.channel.send(embed=embed)
-  
+
 # Handle suggestions
 async def handle_suggestion(message):
   suggestionData = '{}'.format(message.content).replace('!suggest', ' ')
@@ -41,10 +41,10 @@ async def handle_suggestion(message):
   up_emoji = '\N{THUMBS UP SIGN}'
   down_emoji = '\N{THUMBS DOWN SIGN}'
   msg = await channel.send(embed=embed)
-  
+
   await msg.add_reaction(up_emoji)
   await msg.add_reaction(down_emoji)
-  
+
   await message.channel.send('Your suggestion has been submittted ' + '**' + message.author.name + '**')
 
 # Handle links
@@ -55,7 +55,7 @@ async def handle_links(message):
   embed.add_field(name='Staff Application:', value='http://' + config.staff_application, inline=False)
   embed.color=config.color
   await message.channel.send(embed=embed)
-  
+
 # Handle IP
 async def handle_ip(message):
   embed=discord.Embed(title = 'IP:', description = '**' + config.server_ip + '**', color=config.color)
@@ -77,7 +77,7 @@ async def handle_players(message):
     await message.channel.send('There are ' + players + ' players online.')
   except:
     await message.channel.send('There are 0 players online.')
-        
+
 # Handle support info
 async def handle_support(message):
   embed=discord.Embed(title = 'Support:', description = '**To get support, report a user/player, or report a bug please dm me.**', color=config.color)
@@ -86,7 +86,7 @@ async def handle_support(message):
 # Listen to messages for mod-mail/cmds
 @client.event
 async def on_message(message):
-  
+
   # Ignore msgs sent by the bot
   if message.author == client.user:
     return
@@ -113,11 +113,11 @@ async def on_message(message):
   if message.content.startswith('!players'):
     await handle_players(message)
     return
-    
+
   if message.content.startswith('!suggest'):
     await handle_suggestion(message)
     return
-    
+
   if message.content.startswith('!support'):
     await handle_support(message)
     return
