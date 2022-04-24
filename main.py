@@ -128,7 +128,7 @@ async def on_message(message):
     return
 
   if message.content.startswith('!invite'):
-    await message.channel.send('Invite other people with the link: ' +  invite_link)
+    await message.channel.send('Invite other people with the link: ' +  config.invite_link)
     return
 
   if message.content.startswith('!links'):
@@ -140,5 +140,5 @@ async def on_message(message):
     return
 
 
-client.run(bot_token)
+client.run(config.bot_token)
 

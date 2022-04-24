@@ -1,6 +1,6 @@
 # The handler for mod mail
 import discord
-from hash_maps import *
+from hash_maps import HashTable
 
 class ModMail:
   hash_tables = HashTable(2000)  # Hash table for mod-mail
