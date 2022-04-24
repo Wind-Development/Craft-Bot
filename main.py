@@ -6,7 +6,7 @@ import configuration as config
 
 server = JavaServer.lookup(config.server_ip) # The java server
 client = discord.Client() # The bot client
-modmail = ModMail(config.color, client) # The mod mail manager
+modmail = ModMail(config.color, client, config.modmail_log_channel) # The mod mail manager
 
 @client.event
 async def on_ready():
