@@ -2,7 +2,7 @@
 server_ip = 'mc.server.com' # The server ip
 server_name = 'CraftServer' # The server name
 
-bot_token = 'CVLKJL#J13LJ#femC42)S1A)W@#)fsdJFJ#NV' # The bot token for authentication (keep this secret)
+bot_token = 'CraftBotToken' # The bot token for authentication (keep this secret)
 bot_name = 'CraftBot' # The name of the bot
 
 color = 0x3498db # The color of embeds (default is set to blue)
