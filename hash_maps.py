@@ -13,7 +13,7 @@ class HashTable:
   def set_val(self, key, val):
 
     hashed_key = hash(key) % self.size
-      
+
     bucket = self.hash_table[hashed_key]
     
     found_key = False

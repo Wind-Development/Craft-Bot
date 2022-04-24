@@ -27,7 +27,7 @@ class ModMail:
       await DMChannel.send(embed=userEmbed)
       return
     
-    if debug:
+    if self.debug:
       channel=self.client.get_channel(modmail_log_channel)
       await channel.send('A new message was received from **' + message.author.name + '**.')
       
